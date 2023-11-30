@@ -1,0 +1,23 @@
+#bars {
+  display: flex;
+  height: 150px;
+  margin: 0px auto;
+  justify-content: center;
+}
+
+#sorting_algorithms {
+  display: flex;
+  gap: 10px;
+  justify-content: center;
+}
+
+h1 {
+  text-align: center;
+}
+
+.bar {
+  width: 20px;
+  height: 100px;
+  margin: 5px;
+  background-color: teal;
+}

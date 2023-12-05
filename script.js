@@ -1,8 +1,8 @@
 // Randomly generate the bars/array
 function generateRandomArrayOfIntegers() {
-  let array = new Array(20);
+  let array = new Array(30);
   for (let index = 0; index < array.length; index++) {
-    const randomInteger = Math.floor(Math.random() * 100);
+    const randomInteger = Math.floor(Math.random() * 200);
     array[index] = randomInteger;
   }
   return array;

@@ -1,23 +1,50 @@
+body {
+  background: #eee;
+}
+
+#main {
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
 #bars {
   display: flex;
-  height: 150px;
-  margin: 0px auto;
+  min-height: 200px;
+  height: auto;
+  width: 80%;
+  margin: 10px auto;
   justify-content: center;
+  align-items: end;
 }
 
 #sorting_algorithms {
   display: flex;
   gap: 10px;
   justify-content: center;
+
+  & button {
+    background: black;
+    color: white;
+    font-weight: bold;
+    cursor: pointer;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 10px;
+  }
 }
 
 h1 {
   text-align: center;
+  text-transform: uppercase;
+  font-family: "Lato", Tahoma, Geneva, Verdana, sans-serif;
 }
 
 .bar {
   width: 20px;
   height: 100px;
-  margin: 5px;
+  border-right: 2px solid rgb(1, 80, 11);
+  /* margin: 5px; */
   background-color: teal;
 }

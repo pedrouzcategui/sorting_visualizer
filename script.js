@@ -11,13 +11,44 @@ function highlightElement(min, max) {
   const bar_a = document.getElementById(`bar-${min}`);
   const bar_b = document.getElementById(`bar-${max}`);
   // Highlight the elements
-  bar_a.style.backgroundColor = "red";
-  bar_b.style.backgroundColor = "blue";
+  if (min == max) {
+    bar_a.style.backgroundColor = "red";
+  } else {
+    bar_a.style.backgroundColor = "red";
+    bar_b.style.backgroundColor = "blue";
+  }
 }
 // // Code the algorithms
-// function mergeSort() {}
-// function insertionSort() {}
-// function quickSort() {}
+function mergeSort() {}
+function insertionSort() {}
+function quickSort() {}
+
+async function selectionSort() {
+  let array = generateRandomArrayOfIntegers();
+  for (let i = 0; i < array.length; i++) {
+    let smallest_element_index = i;
+
+    for (let j = i; j < array.length; j++) {
+      highlightElement(i, j);
+      await new Promise((resolve) => setTimeout(resolve, 50));
+      printArray(array);
+      await new Promise((resolve) => setTimeout(resolve, 50));
+      if (array[smallest_element_index] > array[j]) {
+        smallest_element_index = j;
+      }
+    }
+    let temp = array[i];
+    array[i] = array[smallest_element_index];
+    array[smallest_element_index] = temp;
+
+    highlightElement(i, smallest_element_index);
+    await new Promise((resolve) => setTimeout(resolve, 50));
+    printArray(array);
+    await new Promise((resolve) => setTimeout(resolve, 50));
+  }
+  printArrayFinal(array);
+  return array;
+}
 
 async function bubbleSort() {
   let array = generateRandomArrayOfIntegers();
@@ -40,9 +71,9 @@ async function bubbleSort() {
     if (counter == array.length) {
       break;
     }
-    document.getElementById(
-      `bar-${array.length - i - 1}`
-    ).style.backgroundColor = "purple";
+    // document.getElementById(
+    //   `bar-${array.length - i - 1}`
+    // ).style.backgroundColor = "purple";
   }
   printArrayFinal(array);
   return array;
@@ -83,11 +114,15 @@ document.addEventListener("DOMContentLoaded", () => {
   handleGenerateArrayClick();
   let generate_array_button = document.getElementById("generate_array");
   let bubble_sort = document.getElementById("bubble_sort");
+  let selection_sort = document.getElementById("selection_sort");
   if (generate_array_button) {
     generate_array_button.addEventListener("click", handleGenerateArrayClick);
   }
   if (bubble_sort) {
     bubble_sort.addEventListener("click", bubbleSort);
+  }
+  if (selection_sort) {
+    selection_sort.addEventListener("click", selectionSort);
   }
 });
 // Set height dynamically

@@ -1,6 +1,7 @@
-// Randomly generate the bars/array
+let array;
+
 function generateRandomArrayOfIntegers() {
-  let array = new Array(30);
+  array = new Array(30);
   for (let index = 0; index < array.length; index++) {
     const randomInteger = Math.floor(Math.random() * 200);
     array[index] = randomInteger;
@@ -18,13 +19,32 @@ function highlightElement(min, max) {
     bar_b.style.backgroundColor = "blue";
   }
 }
-// // Code the algorithms
+
 function mergeSort() {}
-function insertionSort() {}
-function quickSort() {}
+
+async function insertionSort() {
+  let i, key, j;
+  for (i = 1; i < array.length; i++) {
+    key = array[i];
+    j = i - 1;
+    highlightElement(i, j);
+    await new Promise((resolve) => setTimeout(resolve, 50));
+    printArray(array);
+    await new Promise((resolve) => setTimeout(resolve, 50));
+    while (j >= 0 && array[j] > key) {
+      array[j + 1] = array[j];
+      highlightElement(i, j);
+      await new Promise((resolve) => setTimeout(resolve, 50));
+      printArray(array);
+      await new Promise((resolve) => setTimeout(resolve, 50));
+      j = j - 1;
+    }
+    array[j + 1] = key;
+  }
+  printArrayFinal(array);
+}
 
 async function selectionSort() {
-  let array = generateRandomArrayOfIntegers();
   for (let i = 0; i < array.length; i++) {
     let smallest_element_index = i;
 
@@ -51,7 +71,6 @@ async function selectionSort() {
 }
 
 async function bubbleSort() {
-  let array = generateRandomArrayOfIntegers();
   for (let i = 0; i < array.length; i++) {
     let counter = 0;
     for (let j = 0; j < array.length - i - 1; j++) {
@@ -111,10 +130,13 @@ function handleGenerateArrayClick() {
 }
 
 document.addEventListener("DOMContentLoaded", () => {
+  array = generateRandomArrayOfIntegers();
   handleGenerateArrayClick();
   let generate_array_button = document.getElementById("generate_array");
   let bubble_sort = document.getElementById("bubble_sort");
   let selection_sort = document.getElementById("selection_sort");
+  let merge_sort = document.getElementById("merge_sort");
+  let insertion_sort = document.getElementById("insertion_sort");
   if (generate_array_button) {
     generate_array_button.addEventListener("click", handleGenerateArrayClick);
   }
@@ -123,6 +145,12 @@ document.addEventListener("DOMContentLoaded", () => {
   }
   if (selection_sort) {
     selection_sort.addEventListener("click", selectionSort);
+  }
+  if (merge_sort) {
+    merge_sort.addEventListener("click", mergeSort);
+  }
+  if (insertion_sort) {
+    insertion_sort.addEventListener("click", insertionSort);
   }
 });
 // Set height dynamically

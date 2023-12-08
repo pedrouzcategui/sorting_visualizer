@@ -110,7 +110,7 @@ function printArray(array_of_integers) {
   }
 }
 
-function printArrayFinal(array_of_integers) {
+async function printArrayFinal(array_of_integers) {
   let bars_container = document.getElementById("bars");
   bars_container.innerHTML = "";
   for (let i = 0; i < array_of_integers.length; i++) {
@@ -118,8 +118,13 @@ function printArrayFinal(array_of_integers) {
     bar.classList.add("bar");
     bar.id = "bar-" + i;
     bar.style.height = `${array_of_integers[i]}px`;
-    bar.style.background = "green";
+    bar.style.background = "teal";
     bars_container.appendChild(bar);
+  }
+  for (let i = 0; i < array_of_integers.length; i++) {
+    let bar = document.getElementById("bar-" + i);
+    bar.style.background = "green";
+    await new Promise((resolve) => setTimeout(resolve, 50));
   }
 }
 

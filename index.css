@@ -1,10 +1,21 @@
 body {
-  background: #eee;
+  margin: 0px;
+  height: 100vh;
 }
 
-#main {
-  height: 100vh;
+.row {
+  display: grid;
+  height: inherit;
+  grid-template-columns: 75% 25%;
+}
+
+.col {
+  padding: 10px;
+}
+
+.visualization {
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
 }
@@ -19,12 +30,16 @@ body {
   align-items: end;
 }
 
-#sorting_algorithms {
-  display: flex;
-  gap: 10px;
-  justify-content: center;
+.options {
+  background: #000;
+  color: white;
+  padding: 20px;
+}
 
+#sorting_algorithms {
   & button {
+    display: block;
+    margin-bottom: 10px;
     background: black;
     color: white;
     font-weight: bold;

@@ -1,0 +1,9 @@
+[
+  {
+    "algo_name": "Bubble Sort",
+    "time_complexity": "O(n^2)",
+    "space_complexity": "O(1)",
+    "use_when": "You want to be inefficient lol",
+    "pseudo_code": "#include <stdio.h> int main(){example}"
+  }
+]

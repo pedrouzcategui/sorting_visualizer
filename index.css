@@ -1,6 +1,11 @@
+:root {
+  --tile-color: teal;
+}
+
 body {
   margin: 0px;
   height: 100vh;
+  font-family: "Lato", Tahoma, Geneva, Verdana, sans-serif;
 }
 
 .row {
@@ -30,10 +35,28 @@ body {
   align-items: end;
 }
 
+#algorithm_explanation {
+  text-align: left;
+  width: 80%;
+}
+
 .options {
-  background: #000;
+  background: #333;
   color: white;
   padding: 20px;
+}
+
+.option {
+  margin-bottom: 10px;
+}
+
+#sort_button {
+  width: 100%;
+  padding: 5px 0px;
+  border: 0px;
+  border-radius: 5px;
+  background: #000;
+  color: white;
 }
 
 #sorting_algorithms {
@@ -53,13 +76,11 @@ body {
 h1 {
   text-align: center;
   text-transform: uppercase;
-  font-family: "Lato", Tahoma, Geneva, Verdana, sans-serif;
 }
 
 .bar {
   width: 20px;
   height: 100px;
-  border-right: 2px solid rgb(1, 80, 11);
-  /* margin: 5px; */
-  background-color: teal;
+  margin: 1px;
+  background-color: var(--tile-color);
 }

@@ -11,18 +11,19 @@
       <div class="col visualization">
         <h1>Sorting Visualizer</h1>
         <div id="bars"></div>
-        <div>
-          <p>Selected Algorithm Explanation: This algorithm XYZ</p>
+        <div id="algorithm_explanation">
+          <p>Selected Algorithm Explanation: {{This algorithm XYZ}}</p>
           <p>Selected Algorithm Time Complexity: O(n<sup>2</sup>)</p>
           <p>Selected Algorithm Space Complexity: O(1)</p>
           <p>Selected Algorithm Pseudo Code:</p>
+          <p>Use it when:</p>
         </div>
       </div>
       <div class="col options">
         <h2>Options</h2>
         <div id="sorting_algorithms">
           <label for="">Sorting Algorithm: </label>
-          <div>
+          <div class="option">
             <select>
               <option value="">Merge Sort</option>
               <option value="">Bubble Sort</option>
@@ -30,24 +31,40 @@
               <option value="">Selection Sort</option>
               <option value="">Quick Sort</option>
               <option value="">Bogo Sort</option>
+              <option value="">Radix Sort</option>
+              <option value="">Heap Sort</option>
+              <option value="">Shell Sort</option>
+              <option value="">Cocktail Shaker Sort</option>
+              <option value="">Gnome Sort</option>
             </select>
           </div>
         </div>
-        <div>
-          <label for="time">Time</label>
+        <div class="option">
+          <label for="time"
+            >Pause Time Between Swap Step (in miliseconds)</label
+          >
+          <div>10<input type="range" min="1000" max="5000" />100</div>
+        </div>
+        <div class="option">
+          <label for="tiles">Number of tiles</label>
           <div>
-            <input type="range" min="10" max="1000" />
+            4<input
+              id="number_of_tiles_range"
+              type="range"
+              min="4"
+              max="100"
+              value="30"
+            />100
+          </div>
+          <button id="generate_random_array">Generate Random Array</button>
+        </div>
+        <div class="option">
+          <label for="tiles_colors">Tiles Color</label>
+          <div>
+            <input type="color" id="color_picker" />
           </div>
         </div>
-        <div>
-          <label for="tiles">Number of tiles</label>
-          <div>4<input type="range" min="4" max="100" />100</div>
-        </div>
-        <div>
-          <label for="tiles_colors">Tiles Color</label>
-          <input type="color" />
-        </div>
-        <button>SORT!</button>
+        <button id="sort_button">SORT!</button>
       </div>
     </div>
   </body>

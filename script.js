@@ -1,7 +1,9 @@
-let array;
+let array,
+  color,
+  number_of_tiles = 30;
 
 function generateRandomArrayOfIntegers() {
-  array = new Array(30);
+  array = new Array(number_of_tiles);
   for (let index = 0; index < array.length; index++) {
     const randomInteger = Math.floor(Math.random() * 200);
     array[index] = randomInteger;
@@ -18,6 +20,16 @@ function highlightElement(min, max) {
     bar_a.style.backgroundColor = "red";
     bar_b.style.backgroundColor = "blue";
   }
+}
+
+function handleColorPicker(e) {
+  color = e.target.value;
+  document.documentElement.style.setProperty("--tile-color", color);
+}
+
+function handleTileNumber(e) {
+  number_of_tiles = parseInt(e.target.value);
+  printArray(generateRandomArrayOfIntegers());
 }
 
 function mergeSort() {}
@@ -142,6 +154,8 @@ document.addEventListener("DOMContentLoaded", () => {
   let selection_sort = document.getElementById("selection_sort");
   let merge_sort = document.getElementById("merge_sort");
   let insertion_sort = document.getElementById("insertion_sort");
+  let color_picker = document.getElementById("color_picker");
+  let number_of_tiles_range = document.getElementById("number_of_tiles_range");
   if (generate_array_button) {
     generate_array_button.addEventListener("click", handleGenerateArrayClick);
   }
@@ -156,6 +170,12 @@ document.addEventListener("DOMContentLoaded", () => {
   }
   if (insertion_sort) {
     insertion_sort.addEventListener("click", insertionSort);
+  }
+  if (color_picker) {
+    color_picker.addEventListener("change", handleColorPicker);
+  }
+  if (number_of_tiles_range) {
+    number_of_tiles_range.addEventListener("change", handleTileNumber);
   }
 });
 // Set height dynamically
